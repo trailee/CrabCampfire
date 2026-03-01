@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://battle.gd" id="1_7sfm4"]
 [ext_resource type="Texture2D" uid="uid://d1lnbwip54fyx" path="res://assets/caveRemasteredV7.png" id="1_ip7xm"]
 [ext_resource type="Texture2D" uid="uid://b8o0dbilhsjn" path="res://assets/IMG_0051 (1).png" id="2_oxp8w"]
+[ext_resource type="AudioStream" uid="uid://4l0l1hy48s8n" path="res://Audio/cave_bgm.mp3" id="4_i431l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7wwj"]
 bg_color = Color(0.589096, 0.589095, 0.589096, 1)
@@ -233,3 +234,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 60
 text = ">"
+
+[node name="bgm" type="AudioStreamPlayer2D" parent="." unique_id=1475145303]
+stream = ExtResource("4_i431l")
+autoplay = true
