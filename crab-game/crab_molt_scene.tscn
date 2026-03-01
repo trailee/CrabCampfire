@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cy7rirckr2at7"]
+[gd_scene format=3 uid="uid://dggpssbimn2sr"]
 
 [ext_resource type="Texture2D" uid="uid://d1lnbwip54fyx" path="res://assets/caveRemasteredV7.png" id="1_wr1af"]
 [ext_resource type="Texture2D" uid="uid://byljerohuvio1" path="res://assets/sprite_sheet.png" id="2_ktkpq"]
@@ -70,4 +70,5 @@ texture = ExtResource("1_wr1af")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1957411693]
 position = Vector2(586, 328)
 sprite_frames = SubResource("SpriteFrames_v24c3")
+autoplay = "default"
 frame_progress = 0.91327155
