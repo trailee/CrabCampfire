@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cq5h1v0xyko2v"]
 
+[ext_resource type="Script" uid="uid://d2yxqef7lcxt0" path="res://battle.gd" id="1_7sfm4"]
 [ext_resource type="Texture2D" uid="uid://d1lnbwip54fyx" path="res://assets/caveRemasteredV7.png" id="1_ip7xm"]
 [ext_resource type="Texture2D" uid="uid://b8o0dbilhsjn" path="res://assets/IMG_0051 (1).png" id="2_oxp8w"]
 
@@ -40,6 +41,13 @@ border_width_bottom = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6t8i5"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dw4jg"]
+bg_color = Color(0.033853274, 0.03385329, 0.033853233, 0.9764706)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
 [node name="Battle" type="Control" unique_id=1138644414]
 layout_mode = 3
 anchors_preset = 15
@@ -47,14 +55,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7sfm4")
 
-[node name="Bg" type="TextureRect" parent="." unique_id=821247001]
+[node name="BgBackground" type="TextureRect" parent="." unique_id=821247001]
 layout_mode = 0
 offset_right = 1153.0
 offset_bottom = 649.0
 texture = ExtResource("1_ip7xm")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1164898747]
+[node name="EnemyContainer" type="VBoxContainer" parent="." unique_id=1164898747]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -69,7 +78,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.7068072, 0.7068072)
 
-[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer" unique_id=153732057]
+[node name="ProgressBar" type="ProgressBar" parent="EnemyContainer" unique_id=153732057]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_w7wwj")
@@ -78,7 +87,7 @@ step = 1.0
 value = 50.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="VBoxContainer/ProgressBar" unique_id=730757040]
+[node name="Label" type="Label" parent="EnemyContainer/ProgressBar" unique_id=730757040]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -89,7 +98,7 @@ text = "HP: 25/50"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Crab" type="TextureRect" parent="VBoxContainer" unique_id=1557577007]
+[node name="Enemy" type="TextureRect" parent="EnemyContainer" unique_id=1557577007]
 layout_mode = 2
 texture = ExtResource("2_oxp8w")
 
@@ -146,7 +155,7 @@ text = "HP: 25/50"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Player Panel2" type="Panel" parent="." unique_id=733452311]
+[node name="ActionsPanel" type="Panel" parent="." unique_id=733452311]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -154,7 +163,7 @@ offset_bottom = 101.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_oxp8w")
 
-[node name="Actions" type="HBoxContainer" parent="Player Panel2" unique_id=398673771]
+[node name="Actions" type="HBoxContainer" parent="ActionsPanel" unique_id=398673771]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -163,7 +172,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Attack" type="Button" parent="Player Panel2/Actions" unique_id=1758552722]
+[node name="Attack" type="Button" parent="ActionsPanel/Actions" unique_id=1758552722]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
@@ -177,7 +186,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_i431l")
 theme_override_styles/hover = SubResource("StyleBoxFlat_6t8i5")
 text = "ATTACK"
 
-[node name="Defend" type="Button" parent="Player Panel2/Actions" unique_id=2099542323]
+[node name="Defend" type="Button" parent="ActionsPanel/Actions" unique_id=2099542323]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
@@ -190,3 +199,35 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_7sfm4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_i431l")
 theme_override_styles/hover = SubResource("StyleBoxFlat_6t8i5")
 text = "DEFEND"
+
+[node name="Textbox" type="Panel" parent="." unique_id=2071228991]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 122.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dw4jg")
+
+[node name="Label" type="Label" parent="Textbox" unique_id=647525174]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "A crab appears!"
+
+[node name="Ticker" type="Label" parent="Textbox" unique_id=1194063224]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -83.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 60
+text = ">"
