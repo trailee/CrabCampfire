@@ -8,7 +8,12 @@ var current_player_health = 0
 var current_enemy_health = 0
 var is_defending = false
 
+
 func _ready():
+	if not enemy:
+		push_error("Enemy resource not assigned!")
+		return
+		
 	set_health($EnemyContainer/ProgressBar, enemy.health, enemy.health)
 	set_health($PlayerPanel/PlayerData/ProgressBar, State.current_health, State.max_health)
 	$EnemyContainer/Enemy.texture = enemy.texture
