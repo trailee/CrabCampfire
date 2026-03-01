@@ -215,8 +215,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 60
-text = "A crab appears!"
+theme_override_font_sizes/font_size = 35
+text = "You wandered into a cave in search for gold."
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Ticker" type="Label" parent="Textbox" unique_id=1194063224]
 layout_mode = 1

@@ -19,7 +19,7 @@ func _ready():
 	$Textbox.hide()
 	$ActionsPanel.hide()
 	
-	display_text("A wild %s appears!" % enemy.name.to_upper())
+	display_text("You wandered into a cave all alone, somehow stumbling into a crab.")
 	await textbox_closed
 	$ActionsPanel.show()
 
