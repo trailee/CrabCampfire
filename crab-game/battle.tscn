@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cq5h1v0xyko2v"]
+[gd_scene format=3 uid="uid://cq5h1v0xyko2v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7wwj"]
 bg_color = Color(0.589096, 0.589095, 0.589096, 1)
@@ -26,7 +26,7 @@ corner_radius_bottom_left = 10
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oxp8w"]
 bg_color = Color(0, 0, 0, 0.0941176)
 
-[node name="Battle" type="Control"]
+[node name="Battle" type="Control" unique_id=1138644414]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,12 +34,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Bg" type="TextureRect" parent="."]
+[node name="Bg" type="TextureRect" parent="." unique_id=821247001]
 layout_mode = 0
 offset_right = 1153.0
 offset_bottom = 649.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1164898747]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -53,7 +53,7 @@ offset_bottom = 156.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer" unique_id=153732057]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_w7wwj")
@@ -62,21 +62,21 @@ step = 1.0
 value = 50.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="VBoxContainer/ProgressBar"]
+[node name="Label" type="Label" parent="VBoxContainer/ProgressBar" unique_id=730757040]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "HP: 25/50"
+text = "HP: 25/50asdasd"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Crab" type="TextureRect" parent="VBoxContainer"]
+[node name="Crab" type="TextureRect" parent="VBoxContainer" unique_id=1557577007]
 layout_mode = 2
 
-[node name="Player Panel" type="Panel" parent="."]
+[node name="Player Panel" type="Panel" parent="." unique_id=2085169606]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -87,7 +87,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_oxp8w")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Player Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Player Panel" unique_id=1978609324]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
