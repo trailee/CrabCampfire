@@ -61,12 +61,6 @@ func enemy_turn():
 		await textbox_closed
 	$ActionsPanel.show()
 
-func _on_Run_pressed():
-	display_text("Got away safely!")
-	await textbox_closed
-	await get_tree().create_timer(0.25).timeout
-	get_tree().quit()
-
 func _on_Attack_pressed():
 	display_text("You swing your piercing sword!")
 	await textbox_closed
