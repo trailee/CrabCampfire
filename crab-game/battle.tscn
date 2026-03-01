@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cq5h1v0xyko2v"]
 
 [ext_resource type="Texture2D" uid="uid://d1lnbwip54fyx" path="res://assets/caveRemasteredV7.png" id="1_ip7xm"]
+[ext_resource type="Texture2D" uid="uid://b8o0dbilhsjn" path="res://assets/IMG_0051 (1).png" id="2_oxp8w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7wwj"]
 bg_color = Color(0.589096, 0.589095, 0.589096, 1)
@@ -78,6 +79,7 @@ vertical_alignment = 1
 
 [node name="Crab" type="TextureRect" parent="VBoxContainer" unique_id=1557577007]
 layout_mode = 2
+texture = ExtResource("2_oxp8w")
 
 [node name="Player Panel" type="Panel" parent="." unique_id=2085169606]
 layout_mode = 1
