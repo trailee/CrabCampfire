@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cq5h1v0xyko2v"]
 
+[ext_resource type="Texture2D" uid="uid://d1lnbwip54fyx" path="res://assets/caveRemasteredV7.png" id="1_ip7xm"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7wwj"]
 bg_color = Color(0.589096, 0.589095, 0.589096, 1)
 border_width_left = 1
@@ -38,6 +40,7 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 1153.0
 offset_bottom = 649.0
+texture = ExtResource("1_ip7xm")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1164898747]
 layout_mode = 1
@@ -87,7 +90,40 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_oxp8w")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Player Panel" unique_id=1978609324]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="PlayerData" type="HBoxContainer" parent="Player Panel" unique_id=1978609324]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Player Panel/PlayerData" unique_id=1027005579]
+layout_mode = 2
+theme_override_font_sizes/font_size = 52
+text = "Player"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="Player Panel/PlayerData" unique_id=620557189]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_w7wwj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ip7xm")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Player Panel/PlayerData/ProgressBar" unique_id=1167317061]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HP: 25/50"
+horizontal_alignment = 1
+vertical_alignment = 1
