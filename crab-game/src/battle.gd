@@ -3,6 +3,7 @@ extends Control
 signal textbox_closed
 
 @export var enemy: Resource = null
+@export var next_enemy_scene: PackedScene
 
 var current_player_health = 0
 var current_enemy_health = 0
@@ -75,10 +76,13 @@ func _on_attack_pressed():
 		await textbox_closed
 		
 		await get_tree().create_timer(0.25).timeout
-		get_tree().quit()
+		# Load next enemy battle instead of quitting
+		if next_enemy_scene:
+			get_tree().change_scene_to_packed(next_enemy_scene)
+		else:
+			get_tree().quit()
 
 	enemy_turn()
-
 func _on_Defend_pressed():
 	is_defending = true
 	
