@@ -91,6 +91,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2129985409]
+
 [node name="BgBackground" type="TextureRect" parent="." unique_id=821247001]
 layout_mode = 0
 offset_right = 1153.0
