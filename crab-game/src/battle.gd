@@ -48,15 +48,11 @@ func enemy_turn():
 	
 	if is_defending:
 		is_defending = false
-		$AnimationPlayer.play("mini_shake")
-		await $AnimationPlayer.animation_finished
 		display_text("You defended successfully!")
 		await textbox_closed
 	else:
 		current_player_health = max(0, current_player_health - enemy.damage)
 		set_health($"Player Panel/PlayerData/ProgressBar", current_player_health, State.max_health)
-		$AnimationPlayer.play("shake")
-		await $AnimationPlayer.animation_finished
 		display_text("%s dealt %d damage!" % [enemy.name, enemy.damage])
 		await textbox_closed
 	$ActionsPanel.show()
@@ -77,9 +73,6 @@ func _on_attack_pressed():
 	if current_enemy_health == 0:
 		display_text("%s was defeated!" % enemy.name)
 		await textbox_closed
-		
-		$AnimationPlayer.play("enemy_died")
-		await $AnimationPlayer.animation_finished
 		
 		await get_tree().create_timer(0.25).timeout
 		get_tree().quit()
