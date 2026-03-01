@@ -8,14 +8,9 @@ var current_player_health = 0
 var current_enemy_health = 0
 var is_defending = false
 
-
 func _ready():
-	if not enemy:
-		push_error("Enemy resource not assigned!")
-		return
-		
 	set_health($EnemyContainer/ProgressBar, enemy.health, enemy.health)
-	set_health($PlayerPanel/PlayerData/ProgressBar, State.current_health, State.max_health)
+	set_health($"Player Panel/PlayerData/ProgressBar", State.current_health, State.max_health)
 	$EnemyContainer/Enemy.texture = enemy.texture
 	
 	current_player_health = State.current_health
@@ -24,7 +19,7 @@ func _ready():
 	$Textbox.hide()
 	$ActionsPanel.hide()
 	
-	display_text("You wandered into a cave all alone, somehow stumbling into a crab.")
+	display_text("A wild %s appears!" % enemy.name.to_upper())
 	await textbox_closed
 	$ActionsPanel.show()
 
@@ -65,6 +60,12 @@ func enemy_turn():
 		display_text("%s dealt %d damage!" % [enemy.name, enemy.damage])
 		await textbox_closed
 	$ActionsPanel.show()
+
+func _on_Run_pressed():
+	display_text("Got away safely!")
+	await textbox_closed
+	await get_tree().create_timer(0.25).timeout
+	get_tree().quit()
 
 func _on_Attack_pressed():
 	display_text("You swing your piercing sword!")
