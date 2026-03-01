@@ -54,20 +54,14 @@ func enemy_turn():
 		await textbox_closed
 	else:
 		current_player_health = max(0, current_player_health - enemy.damage)
-		set_health($PlayerPanel/PlayerData/ProgressBar, current_player_health, State.max_health)
+		set_health($"Player Panel/PlayerData/ProgressBar", current_player_health, State.max_health)
 		$AnimationPlayer.play("shake")
 		await $AnimationPlayer.animation_finished
 		display_text("%s dealt %d damage!" % [enemy.name, enemy.damage])
 		await textbox_closed
 	$ActionsPanel.show()
 
-func _on_Run_pressed():
-	display_text("Got away safely!")
-	await textbox_closed
-	await get_tree().create_timer(0.25).timeout
-	get_tree().quit()
-
-func _on_Attack_pressed():
+func _on_attack_pressed():
 	display_text("You swing your piercing sword!")
 	await textbox_closed
 	
@@ -100,4 +94,4 @@ func _on_Defend_pressed():
 	
 	await get_tree().create_timer(0.25).timeout
 	
-	enemy_turn()
+	enemy_turn() 
