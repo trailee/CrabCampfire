@@ -1,0 +1,235 @@
+[gd_scene format=3 uid="uid://cfrd2y6ejtx7f"]
+
+[ext_resource type="Script" path="res://battle.gd" id="1_7sfm4"]
+[ext_resource type="Texture2D" uid="uid://d1lnbwip54fyx" path="res://assets/caveRemasteredV7.png" id="1_ip7xm"]
+[ext_resource type="Texture2D" uid="uid://b8o0dbilhsjn" path="res://assets/IMG_0051 (1).png" id="2_oxp8w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7wwj"]
+bg_color = Color(0.589096, 0.589095, 0.589096, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ip7xm"]
+bg_color = Color(0.215887, 0.647477, 0.848095, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oxp8w"]
+bg_color = Color(0, 0, 0, 0.0941176)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7sfm4"]
+bg_color = Color(0.012645883, 0.012645884, 0.01264587, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i431l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6t8i5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dw4jg"]
+bg_color = Color(0.033853274, 0.03385329, 0.033853233, 0.9764706)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[node name="Battle" type="Control" unique_id=1138644414]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7sfm4")
+
+[node name="BgBackground" type="TextureRect" parent="." unique_id=821247001]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 649.0
+texture = ExtResource("1_ip7xm")
+
+[node name="EnemyContainer" type="VBoxContainer" parent="." unique_id=1164898747]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -179.0
+offset_top = -198.0
+offset_right = 312.0
+offset_bottom = 366.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7068072, 0.7068072)
+
+[node name="ProgressBar" type="ProgressBar" parent="EnemyContainer" unique_id=153732057]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_w7wwj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ip7xm")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="EnemyContainer/ProgressBar" unique_id=730757040]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HP: 25/50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy" type="TextureRect" parent="EnemyContainer" unique_id=1557577007]
+layout_mode = 2
+texture = ExtResource("2_oxp8w")
+
+[node name="Player Panel" type="Panel" parent="." unique_id=2085169606]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -174.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_oxp8w")
+
+[node name="PlayerData" type="HBoxContainer" parent="Player Panel" unique_id=1978609324]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = 50.0
+offset_right = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Player Panel/PlayerData" unique_id=1027005579]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 52
+text = "Player"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="Player Panel/PlayerData" unique_id=620557189]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_w7wwj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ip7xm")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Player Panel/PlayerData/ProgressBar" unique_id=1167317061]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HP: 25/50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionsPanel" type="Panel" parent="." unique_id=733452311]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 101.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oxp8w")
+
+[node name="Actions" type="HBoxContainer" parent="ActionsPanel" unique_id=398673771]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Attack" type="Button" parent="ActionsPanel/Actions" unique_id=1758552722]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_pressed_color = Color(0.04755766, 0.047557645, 0.047557645, 1)
+theme_override_colors/font_hover_color = Color(0.011087557, 0.011087585, 0.0110876355, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_7sfm4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i431l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6t8i5")
+text = "ATTACK"
+
+[node name="Defend" type="Button" parent="ActionsPanel/Actions" unique_id=2099542323]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_pressed_color = Color(0.04755766, 0.047557645, 0.047557645, 1)
+theme_override_colors/font_hover_color = Color(0.011087557, 0.011087585, 0.0110876355, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_7sfm4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i431l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6t8i5")
+text = "DEFEND"
+
+[node name="Textbox" type="Panel" parent="." unique_id=2071228991]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 122.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dw4jg")
+
+[node name="Label" type="Label" parent="Textbox" unique_id=647525174]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 35
+text = "You wandered into a cave in search for gold."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ticker" type="Label" parent="Textbox" unique_id=1194063224]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -83.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 60
+text = ">"
