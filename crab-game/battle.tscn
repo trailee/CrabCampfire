@@ -31,6 +31,10 @@ bg_color = Color(0, 0, 0, 0.0941176)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7sfm4"]
 bg_color = Color(0.012645883, 0.012645884, 0.01264587, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i431l"]
 
@@ -159,9 +163,10 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="Player Panel2/Actions" unique_id=1758552722]
+[node name="Attack" type="Button" parent="Player Panel2/Actions" unique_id=1758552722]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
 theme_type_variation = &"FlatButton"
 theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
 theme_override_colors/font_pressed_color = Color(0.04755766, 0.047557645, 0.047557645, 1)
@@ -170,4 +175,18 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_7sfm4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_i431l")
 theme_override_styles/hover = SubResource("StyleBoxFlat_6t8i5")
-text = "RUN"
+text = "ATTACK"
+
+[node name="Defend" type="Button" parent="Player Panel2/Actions" unique_id=2099542323]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_pressed_color = Color(0.04755766, 0.047557645, 0.047557645, 1)
+theme_override_colors/font_hover_color = Color(0.011087557, 0.011087585, 0.0110876355, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_7sfm4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i431l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6t8i5")
+text = "DEFEND"
