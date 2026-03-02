@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://cfrd2y6ejtx7f"]
 
-[ext_resource type="Script" path="res://battle.gd" id="1_7sfm4"]
 [ext_resource type="Texture2D" uid="uid://d1lnbwip54fyx" path="res://assets/caveRemasteredV7.png" id="1_ip7xm"]
 [ext_resource type="Texture2D" uid="uid://b8o0dbilhsjn" path="res://assets/IMG_0051 (1).png" id="2_oxp8w"]
 
@@ -91,7 +90,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_7sfm4")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2129985409]
 
 [node name="BgBackground" type="TextureRect" parent="." unique_id=821247001]
 layout_mode = 0
@@ -252,8 +252,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 35
-text = "You wandered into a cave in search for gold."
-horizontal_alignment = 1
+text = "     You wandered into a cave in search for gold."
 vertical_alignment = 1
 
 [node name="Ticker" type="Label" parent="Textbox" unique_id=1194063224]
