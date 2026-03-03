@@ -1,15 +1,16 @@
 [gd_scene format=3 uid="uid://rhssa8tpt0tp"]
 
-[ext_resource type="Script" uid="uid://d2yxqef7lcxt0" path="res://src/battle.gd" id="1_fluly"]
-[ext_resource type="Resource" uid="uid://854d0dufabr0" path="res://src/Dragon.tres" id="2_rr1fq"]
-[ext_resource type="Texture2D" uid="uid://d1lnbwip54fyx" path="res://assets/cave.png" id="2_sb4ph"]
-[ext_resource type="PackedScene" uid="uid://dggpssbimn2sr" path="res://crab_molt_scene.tscn" id="3_h4qsw"]
-[ext_resource type="Texture2D" uid="uid://b8o0dbilhsjn" path="res://assets/crab.png" id="3_rr1fq"]
-[ext_resource type="AudioStream" uid="uid://ckmqv6aohwdo5" path="res://Audio/cave_bgm.wav" id="6_h4qsw"]
-[ext_resource type="AudioStream" uid="uid://cshphuw8o2pmg" path="res://Audio/crab_hit.wav" id="7_muv5k"]
-[ext_resource type="AudioStream" uid="uid://c2rvxvc06cwjn" path="res://Audio/player_hit.wav" id="8_jk78t"]
-[ext_resource type="AudioStream" uid="uid://bifvmt8naroyu" path="res://Audio/hoverchoice.wav" id="9_jk78t"]
-[ext_resource type="AudioStream" uid="uid://n7h7j4xj854c" path="res://Audio/pressedbutton.wav" id="10_5o88q"]
+[ext_resource type="Script" uid="uid://d2yxqef7lcxt0" path="res://src/battle.gd" id="1_v7i3o"]
+[ext_resource type="Resource" uid="uid://854d0dufabr0" path="res://src/Dragon.tres" id="2_66ngm"]
+[ext_resource type="PackedScene" uid="uid://dggpssbimn2sr" path="res://scenes/crab_molt_scene.tscn" id="3_03edq"]
+[ext_resource type="Texture2D" uid="uid://d1lnbwip54fyx" path="res://assets/cave.png" id="4_22uqi"]
+[ext_resource type="Texture2D" uid="uid://b8o0dbilhsjn" path="res://assets/crab.png" id="5_6ni85"]
+[ext_resource type="AudioStream" uid="uid://ckmqv6aohwdo5" path="res://Audio/cave_bgm.wav" id="6_vceff"]
+[ext_resource type="AudioStream" uid="uid://c2rvxvc06cwjn" path="res://Audio/player_hit.wav" id="7_ekamt"]
+[ext_resource type="AudioStream" uid="uid://cshphuw8o2pmg" path="res://Audio/crab_hit.wav" id="8_djc8l"]
+[ext_resource type="AudioStream" uid="uid://bifvmt8naroyu" path="res://Audio/hoverchoice.wav" id="9_h4dll"]
+[ext_resource type="AudioStream" uid="uid://n7h7j4xj854c" path="res://Audio/pressedbutton.wav" id="10_p0caf"]
+[ext_resource type="PackedScene" uid="uid://b7o2ba4ihetdr" path="res://scenes/card_ui/card_ui.tscn" id="11_66ngm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7wwj"]
 bg_color = Color(0.589096, 0.589095, 0.589096, 1)
@@ -119,6 +120,9 @@ _data = {
 &"player_damaged": SubResource("Animation_h4qsw")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03edq"]
+size = Vector2(1152, 432)
+
 [node name="Battle" type="Control" unique_id=1138644414]
 layout_mode = 3
 anchors_preset = 15
@@ -126,15 +130,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_fluly")
-enemy = ExtResource("2_rr1fq")
-next_enemy_scene = ExtResource("3_h4qsw")
+script = ExtResource("1_v7i3o")
+enemy = ExtResource("2_66ngm")
+next_enemy_scene = ExtResource("3_03edq")
+metadata/_edit_lock_ = true
 
 [node name="BgBackground" type="TextureRect" parent="." unique_id=821247001]
 layout_mode = 0
 offset_right = 1153.0
 offset_bottom = 649.0
-texture = ExtResource("2_sb4ph")
+texture = ExtResource("4_22uqi")
 
 [node name="EnemyContainer" type="VBoxContainer" parent="." unique_id=1164898747]
 layout_mode = 1
@@ -174,7 +179,7 @@ vertical_alignment = 1
 [node name="Enemy" type="TextureRect" parent="EnemyContainer" unique_id=1557577007]
 modulate = Color(0.6542321, 0.6542321, 0.654232, 1)
 layout_mode = 2
-texture = ExtResource("3_rr1fq")
+texture = ExtResource("5_6ni85")
 
 [node name="Player Panel" type="Panel" parent="." unique_id=2085169606]
 layout_mode = 1
@@ -312,20 +317,52 @@ text = ">"
 libraries/ = SubResource("AnimationLibrary_h4qsw")
 
 [node name="cave_bgm" type="AudioStreamPlayer" parent="." unique_id=1629841738]
-stream = ExtResource("6_h4qsw")
+stream = ExtResource("6_vceff")
 autoplay = true
 
 [node name="userhit_sfx" type="AudioStreamPlayer" parent="." unique_id=971455281]
-stream = ExtResource("8_jk78t")
+stream = ExtResource("7_ekamt")
 
 [node name="crabhit_sfx" type="AudioStreamPlayer" parent="." unique_id=1539464454]
-stream = ExtResource("7_muv5k")
+stream = ExtResource("8_djc8l")
 
 [node name="hoverbutton_sfx" type="AudioStreamPlayer" parent="." unique_id=1561107428]
-stream = ExtResource("9_jk78t")
+stream = ExtResource("9_h4dll")
 
 [node name="pressedbutton_sfx" type="AudioStreamPlayer" parent="." unique_id=730784296]
-stream = ExtResource("10_5o88q")
+stream = ExtResource("10_p0caf")
+
+[node name="CardBattle" type="Node2D" parent="." unique_id=491583421]
+
+[node name="CardDropArea" type="Area2D" parent="CardBattle" unique_id=378923056]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardBattle/CardDropArea" unique_id=845136715]
+position = Vector2(576, 216)
+shape = SubResource("RectangleShape2D_03edq")
+
+[node name="BattleUI" type="CanvasLayer" parent="CardBattle" unique_id=1305196780]
+
+[node name="Hand" type="HBoxContainer" parent="CardBattle/BattleUI" unique_id=789428368]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -180.0
+offset_right = 400.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CardUI" parent="CardBattle/BattleUI/Hand" unique_id=826986466 instance=ExtResource("11_66ngm")]
+layout_mode = 2
+
+[node name="CardUI2" parent="CardBattle/BattleUI/Hand" unique_id=969092134 instance=ExtResource("11_66ngm")]
+layout_mode = 2
+
+[node name="CardUI3" parent="CardBattle/BattleUI/Hand" unique_id=199266378 instance=ExtResource("11_66ngm")]
+layout_mode = 2
 
 [connection signal="mouse_entered" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_mouse_entered"]
 [connection signal="pressed" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_pressed"]
