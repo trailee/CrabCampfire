@@ -314,7 +314,6 @@ libraries/ = SubResource("AnimationLibrary_h4qsw")
 [node name="cave_bgm" type="AudioStreamPlayer" parent="." unique_id=1629841738]
 stream = ExtResource("6_h4qsw")
 autoplay = true
-bus = &"bgm"
 
 [node name="userhit_sfx" type="AudioStreamPlayer" parent="." unique_id=971455281]
 stream = ExtResource("8_jk78t")

@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Crab Game"
-run/main_scene="uid://rhssa8tpt0tp"
+run/main_scene="uid://7w3hot20rq2u"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
