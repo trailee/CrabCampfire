@@ -49,7 +49,7 @@ func enemy_turn():
 	
 	if is_defending:
 		is_defending = false
-		display_text("It actually worked!")
+		display_text("Your defense actually worked!")
 		await textbox_closed
 	else:
 		current_player_health = max(0, current_player_health - enemy.damage)
