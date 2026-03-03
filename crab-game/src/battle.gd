@@ -54,6 +54,7 @@ func enemy_turn():
 	else:
 		current_player_health = max(0, current_player_health - enemy.damage)
 		set_health($"Player Panel/PlayerData/ProgressBar", current_player_health, State.max_health)
+		$AnimationPlayer.play("user_damaged")
 		display_text("%s dealt %d damage!" % [enemy.name, enemy.damage])
 		await textbox_closed
 	$ActionsPanel.show()
