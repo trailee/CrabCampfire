@@ -7,7 +7,7 @@ var rng = RandomNumberGenerator.new()
 
 var current_player_health = 0
 var current_enemy_health = 0
-var is_defending = false
+var is_defending = 0
 
 func _ready():
 	set_health($EnemyContainer/ProgressBar, enemy.health, enemy.health)
