@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dklheh4npdukj"]
+
+[ext_resource type="Texture2D" uid="uid://d1lnbwip54fyx" path="res://assets/cave.png" id="1_ncvnm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_315h4"]
+size = Vector2(1152, 432)
+
+[node name="Node2D" type="Node2D" unique_id=1787866114]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1591903359]
+scale = Vector2(3.8272429, 2.1818182)
+texture = ExtResource("1_ncvnm")
+centered = false
+
+[node name="CardDropArea" type="Area2D" parent="." unique_id=687955414]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea" unique_id=362961124]
+position = Vector2(576, 216)
+shape = SubResource("RectangleShape2D_315h4")
