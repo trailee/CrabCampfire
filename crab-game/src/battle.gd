@@ -70,6 +70,20 @@ func enemy_turn():
 					#get_tree().change_scene_to_packed(next_enemy_scene)
 				#else:
 					#get_tree().quit()
+	else:
+		current_player_health = max(0, current_player_health - enemy.damage)
+		set_health($"Player Panel/PlayerData/ProgressBar", current_player_health, State.max_health)
+		$userhit_sfx.play()
+		$AnimationPlayer.play("player_damaged")
+		display_text("%s dealt %d damage!" % [enemy.name, enemy.damage])
+		await textbox_closed
+		
+		if current_player_health == 0:
+			display_text("You were defeated!")
+			await textbox_closed
+			
+			await get_tree().create_timer(0.25).timeout
+			get_tree().quit()
 	is_defending=false
 	$ActionsPanel.show()
 
