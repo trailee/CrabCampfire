@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d1lnbwip54fyx" path="res://assets/cave.png" id="2_sb4ph"]
 [ext_resource type="PackedScene" uid="uid://dggpssbimn2sr" path="res://crab_molt_scene.tscn" id="3_h4qsw"]
 [ext_resource type="Texture2D" uid="uid://b8o0dbilhsjn" path="res://assets/crab.png" id="3_rr1fq"]
+[ext_resource type="AudioStream" uid="uid://ckmqv6aohwdo5" path="res://Audio/cave_bgm.wav" id="6_h4qsw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7wwj"]
 bg_color = Color(0.589096, 0.589095, 0.589096, 1)
@@ -55,7 +56,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("EnemyContainer/Enemy:modulate")
+tracks/0/path = NodePath("Player Panel/PlayerData:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -67,7 +68,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Player Panel/PlayerData:modulate")
+tracks/1/path = NodePath("EnemyContainer:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -82,14 +83,14 @@ resource_name = "enemy_damaged"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("EnemyContainer/Enemy:modulate")
+tracks/0/path = NodePath("EnemyContainer:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.03333336, 0.29999995, 0.36666667, 0.66666657, 0.96666664),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2666666, 0.3333333, 0.6333332, 0.9333333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(0.5372549, 0, 0.07058824, 0.6901961), Color(0.5372549, 0, 0.07058824, 0), Color(0.63171524, 0.6317153, 0.631715, 1), Color(0.5372549, 0, 0.07058824, 0), Color(0.6542321, 0.6542321, 0.654232, 1)]
+"values": [Color(0.5372549, 0, 0.07058824, 0.6901961), Color(0.5372549, 0, 0.07058824, 0), Color(0.63171524, 0.6317153, 0.631715, 1), Color(0.5372549, 0, 0.07058824, 0), Color(0.6542321, 0.6542321, 0.654232, 1), Color(0.6542321, 0.6542321, 0.654232, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_h4qsw"]
@@ -167,6 +168,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Enemy" type="TextureRect" parent="EnemyContainer" unique_id=1557577007]
+modulate = Color(0.6542321, 0.6542321, 0.654232, 1)
 layout_mode = 2
 texture = ExtResource("3_rr1fq")
 
@@ -304,6 +306,10 @@ text = ">"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=671429659]
 libraries/ = SubResource("AnimationLibrary_h4qsw")
+
+[node name="cave_bgm" type="AudioStreamPlayer" parent="." unique_id=1629841738]
+stream = ExtResource("6_h4qsw")
+autoplay = true
 
 [connection signal="pressed" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="ActionsPanel/Actions/Defend" to="." method="_on_Defend_pressed"]
