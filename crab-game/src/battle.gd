@@ -55,7 +55,7 @@ func enemy_turn():
 			current_player_health = max(0, current_player_health - enemy.damage)
 			set_health($"Player Panel/PlayerData/ProgressBar", current_player_health, State.max_health)
 			display_text("It didn't work!")
-			$userhit_sfx.play()
+			$crabhit_sfx.play()
 			$AnimationPlayer.play("player_damaged")
 			display_text("%s dealt %d damage!" % [enemy.name, enemy.damage])
 			await textbox_closed
@@ -74,7 +74,7 @@ func enemy_turn():
 	else:
 		current_player_health = max(0, current_player_health - enemy.damage)
 		set_health($"Player Panel/PlayerData/ProgressBar", current_player_health, State.max_health)
-		$userhit_sfx.play()
+		$crabhit_sfx.play()
 		$AnimationPlayer.play("player_damaged")
 		display_text("%s dealt %d damage!" % [enemy.name, enemy.damage])
 		await textbox_closed
@@ -95,7 +95,7 @@ func _on_attack_pressed():
 	
 	current_enemy_health = max(0, current_enemy_health - State.damage)
 	set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
-	$crabhit_sfx.play()
+	$userhit_sfx.play()
 	$AnimationPlayer.play("enemy_damaged")
 	await $AnimationPlayer.animation_finished
 	
