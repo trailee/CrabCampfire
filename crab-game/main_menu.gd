@@ -5,7 +5,7 @@ func _ready():
 
 # START BUTTON
 func _on_start_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://src/battle.tscn")
+	get_tree().change_scene_to_file("res://scenes/battle.tscn")
 func _on_start_button_mouse_entered() -> void:
 	$hover_sfx.play()
 
