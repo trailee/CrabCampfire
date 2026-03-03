@@ -44,12 +44,12 @@ func display_text(text):
 	$Textbox/Label.text = text
 
 func enemy_turn():
-	display_text("%s launches at you fiercely!" % enemy.name)
+	display_text("%s pinches you!" % enemy.name)
 	await textbox_closed
 	
 	if is_defending:
 		is_defending = false
-		display_text("You defended successfully!")
+		display_text("It actually worked!")
 		await textbox_closed
 	else:
 		current_player_health = max(0, current_player_health - enemy.damage)
@@ -59,7 +59,7 @@ func enemy_turn():
 	$ActionsPanel.show()
 
 func _on_attack_pressed():
-	display_text("You swing your piercing sword!")
+	display_text("You flail your arms around!")
 	await textbox_closed
 	
 	current_enemy_health = max(0, current_enemy_health - State.damage)
@@ -86,7 +86,7 @@ func _on_attack_pressed():
 func _on_Defend_pressed():
 	is_defending = true
 	
-	display_text("You prepare defensively!")
+	display_text("You shield your head like a coward!")
 	await textbox_closed
 	
 	await get_tree().create_timer(0.25).timeout
