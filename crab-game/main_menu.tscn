@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bm22ylfln2bks" path="res://main_menu.gd" id="1_06t4h"]
 [ext_resource type="Texture2D" uid="uid://djpwfp77p3ist" path="res://assets/mainmenu.png" id="2_7vrkn"]
 [ext_resource type="AudioStream" uid="uid://crxe88s8bd85b" path="res://Audio/menu_down.wav" id="3_fu7sn"]
+[ext_resource type="AudioStream" uid="uid://bj4l17ya77rtl" path="res://Audio/mainmenu_bgm.mp3" id="3_glbon"]
 [ext_resource type="Texture2D" uid="uid://p5h3k1rso62h" path="res://assets/credits_ui.png" id="4_jix8l"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fu7sn"]
@@ -77,6 +78,9 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_glbon")
 text = "Credits"
 
 [node name="mainmenu_bgm" type="AudioStreamPlayer" parent="." unique_id=1345832961]
+stream = ExtResource("3_glbon")
+volume_db = -8.0
+autoplay = true
 bus = &"bgm"
 
 [node name="hover_sfx" type="AudioStreamPlayer" parent="." unique_id=805039246]
