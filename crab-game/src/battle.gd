@@ -48,7 +48,7 @@ func enemy_turn():
 	display_text("%s pinches you!" % enemy.name)
 	await textbox_closed
 	if (is_defending):
-		if (defense>3):
+		if (defense>2):
 			display_text("Your defense actually worked!")
 			await textbox_closed
 		else:
