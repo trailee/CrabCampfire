@@ -7,7 +7,8 @@ var rng = RandomNumberGenerator.new()
 
 var current_player_health = 0
 var current_enemy_health = 0
-var is_defending = 0
+var is_defending = false
+var defense = 0
 
 func _ready():
 	set_health($EnemyContainer/ProgressBar, enemy.health, enemy.health)
@@ -46,30 +47,30 @@ func display_text(text):
 func enemy_turn():
 	display_text("%s pinches you!" % enemy.name)
 	await textbox_closed
-	
-	if (is_defending>3):
-		display_text("Your defense actually worked!")
-		await textbox_closed
-	else:
-		current_player_health = max(0, current_player_health - enemy.damage)
-		set_health($"Player Panel/PlayerData/ProgressBar", current_player_health, State.max_health)
-		$userhit_sfx.play()
-		$AnimationPlayer.play("player_damaged")
-		display_text("%s dealt %d damage!" % [enemy.name, enemy.damage])
-		await textbox_closed
-		
-		if current_player_health == 0:
-			display_text("You were defeated!")
+	if (is_defending):
+		if (defense>3):
+			display_text("Your defense actually worked!")
+			await textbox_closed
+		else:
+			current_player_health = max(0, current_player_health - enemy.damage)
+			set_health($"Player Panel/PlayerData/ProgressBar", current_player_health, State.max_health)
+			$userhit_sfx.play()
+			$AnimationPlayer.play("player_damaged")
+			display_text("%s dealt %d damage!" % [enemy.name, enemy.damage])
 			await textbox_closed
 			
-			await get_tree().create_timer(0.25).timeout
-			get_tree().quit()
-			# Load next enemy battle instead of quitting
-			#if next_enemy_scene:
-				#get_tree().change_scene_to_packed(next_enemy_scene)
-			#else:
-				#get_tree().quit()
-		
+			if current_player_health == 0:
+				display_text("You were defeated!")
+				await textbox_closed
+				
+				await get_tree().create_timer(0.25).timeout
+				get_tree().quit()
+				# Load next enemy battle instead of quitting
+				#if next_enemy_scene:
+					#get_tree().change_scene_to_packed(next_enemy_scene)
+				#else:
+					#get_tree().quit()
+	is_defending=false
 	$ActionsPanel.show()
 
 func _on_attack_pressed():
@@ -99,8 +100,9 @@ func _on_attack_pressed():
 
 	enemy_turn()
 func _on_Defend_pressed():
+	is_defending = true
 	$pressedbutton_sfx.play()
-	is_defending = rng.randi_range(0,5)
+	defense = rng.randi_range(0,5)
 	display_text("You shield your head like a coward!")
 	await textbox_closed
 	await get_tree().create_timer(0.25).timeout
