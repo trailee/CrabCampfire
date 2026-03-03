@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dggpssbimn2sr" path="res://crab_molt_scene.tscn" id="3_h4qsw"]
 [ext_resource type="Texture2D" uid="uid://b8o0dbilhsjn" path="res://assets/crab.png" id="3_rr1fq"]
 [ext_resource type="AudioStream" uid="uid://ckmqv6aohwdo5" path="res://Audio/cave_bgm.wav" id="6_h4qsw"]
+[ext_resource type="AudioStream" uid="uid://cshphuw8o2pmg" path="res://Audio/crab_hit.wav" id="7_muv5k"]
+[ext_resource type="AudioStream" uid="uid://c2rvxvc06cwjn" path="res://Audio/player_hit.wav" id="8_jk78t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7wwj"]
 bg_color = Color(0.589096, 0.589095, 0.589096, 1)
@@ -310,6 +312,13 @@ libraries/ = SubResource("AnimationLibrary_h4qsw")
 [node name="cave_bgm" type="AudioStreamPlayer" parent="." unique_id=1629841738]
 stream = ExtResource("6_h4qsw")
 autoplay = true
+bus = &"Background Music"
+
+[node name="userhit_sfx" type="AudioStreamPlayer" parent="." unique_id=987712871]
+stream = ExtResource("7_muv5k")
+
+[node name="crabhit_sfx" type="AudioStreamPlayer" parent="." unique_id=971627920]
+stream = ExtResource("8_jk78t")
 
 [connection signal="pressed" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="ActionsPanel/Actions/Defend" to="." method="_on_Defend_pressed"]

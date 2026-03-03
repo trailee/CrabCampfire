@@ -54,9 +54,23 @@ func enemy_turn():
 	else:
 		current_player_health = max(0, current_player_health - enemy.damage)
 		set_health($"Player Panel/PlayerData/ProgressBar", current_player_health, State.max_health)
+		$userhit_sfx.play()
 		$AnimationPlayer.play("player_damaged")
 		display_text("%s dealt %d damage!" % [enemy.name, enemy.damage])
 		await textbox_closed
+		
+		if current_player_health == 0:
+			display_text("You were defeated!")
+			await textbox_closed
+			
+			await get_tree().create_timer(0.25).timeout
+			get_tree().quit()
+			# Load next enemy battle instead of quitting
+			#if next_enemy_scene:
+				#get_tree().change_scene_to_packed(next_enemy_scene)
+			#else:
+				#get_tree().quit()
+		
 	$ActionsPanel.show()
 
 func _on_attack_pressed():
@@ -65,7 +79,7 @@ func _on_attack_pressed():
 	
 	current_enemy_health = max(0, current_enemy_health - State.damage)
 	set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
-
+	$crabhit_sfx.play()
 	$AnimationPlayer.play("enemy_damaged")
 	await $AnimationPlayer.animation_finished
 	
