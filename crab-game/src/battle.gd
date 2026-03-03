@@ -1,7 +1,7 @@
 extends Control
 
 signal textbox_closed
-
+var rng = RandomNumberGenerator.new()
 @export var enemy: Resource = null
 @export var next_enemy_scene: PackedScene
 
@@ -47,8 +47,7 @@ func enemy_turn():
 	display_text("%s pinches you!" % enemy.name)
 	await textbox_closed
 	
-	if is_defending:
-		is_defending = false
+	if (is_defending>3):
 		display_text("Your defense actually worked!")
 		await textbox_closed
 	else:
@@ -74,6 +73,7 @@ func enemy_turn():
 	$ActionsPanel.show()
 
 func _on_attack_pressed():
+	$pressedbutton_sfx.play()
 	display_text("You flail your arms around!")
 	await textbox_closed
 	
@@ -99,11 +99,17 @@ func _on_attack_pressed():
 
 	enemy_turn()
 func _on_Defend_pressed():
-	is_defending = true
-	
+	$pressedbutton_sfx.play()
+	is_defending = rng.randi_range(0,5)
 	display_text("You shield your head like a coward!")
 	await textbox_closed
-	
 	await get_tree().create_timer(0.25).timeout
 	
 	enemy_turn() 
+
+# atk
+func _on_attack_mouse_entered() -> void:
+	$hoverbutton_sfx.play()
+# defend
+func _on_defend_mouse_entered() -> void:
+	$hoverbutton_sfx.play()

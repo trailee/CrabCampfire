@@ -8,6 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://ckmqv6aohwdo5" path="res://Audio/cave_bgm.wav" id="6_h4qsw"]
 [ext_resource type="AudioStream" uid="uid://cshphuw8o2pmg" path="res://Audio/crab_hit.wav" id="7_muv5k"]
 [ext_resource type="AudioStream" uid="uid://c2rvxvc06cwjn" path="res://Audio/player_hit.wav" id="8_jk78t"]
+[ext_resource type="AudioStream" uid="uid://bifvmt8naroyu" path="res://Audio/hoverchoice.wav" id="9_jk78t"]
+[ext_resource type="AudioStream" uid="uid://n7h7j4xj854c" path="res://Audio/pressedbutton.wav" id="10_5o88q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7wwj"]
 bg_color = Color(0.589096, 0.589095, 0.589096, 1)
@@ -312,13 +314,20 @@ libraries/ = SubResource("AnimationLibrary_h4qsw")
 [node name="cave_bgm" type="AudioStreamPlayer" parent="." unique_id=1629841738]
 stream = ExtResource("6_h4qsw")
 autoplay = true
-bus = &"Background Music"
 
-[node name="userhit_sfx" type="AudioStreamPlayer" parent="." unique_id=987712871]
-stream = ExtResource("7_muv5k")
-
-[node name="crabhit_sfx" type="AudioStreamPlayer" parent="." unique_id=971627920]
+[node name="userhit_sfx" type="AudioStreamPlayer" parent="." unique_id=971455281]
 stream = ExtResource("8_jk78t")
 
+[node name="crabhit_sfx" type="AudioStreamPlayer" parent="." unique_id=1539464454]
+stream = ExtResource("7_muv5k")
+
+[node name="hoverbutton_sfx" type="AudioStreamPlayer" parent="." unique_id=1561107428]
+stream = ExtResource("9_jk78t")
+
+[node name="pressedbutton_sfx" type="AudioStreamPlayer" parent="." unique_id=730784296]
+stream = ExtResource("10_5o88q")
+
+[connection signal="mouse_entered" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_mouse_entered"]
 [connection signal="pressed" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_pressed"]
+[connection signal="mouse_entered" from="ActionsPanel/Actions/Defend" to="." method="_on_defend_mouse_entered"]
 [connection signal="pressed" from="ActionsPanel/Actions/Defend" to="." method="_on_Defend_pressed"]
