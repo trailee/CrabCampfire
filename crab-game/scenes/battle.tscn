@@ -341,9 +341,9 @@ collision_layer = 2
 position = Vector2(576, 216)
 shape = SubResource("RectangleShape2D_03edq")
 
-[node name="BattleUI" type="CanvasLayer" parent="CardBattle" unique_id=1305196780]
+[node name="CardBattleUI" type="CanvasLayer" parent="CardBattle" unique_id=1305196780 groups=["ui_layer"]]
 
-[node name="Hand" type="HBoxContainer" parent="CardBattle/BattleUI" unique_id=789428368]
+[node name="Hand" type="HBoxContainer" parent="CardBattle/CardBattleUI" unique_id=789428368]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -354,14 +354,15 @@ offset_top = -180.0
 offset_right = 400.0
 grow_horizontal = 2
 grow_vertical = 0
+alignment = 1
 
-[node name="CardUI" parent="CardBattle/BattleUI/Hand" unique_id=826986466 instance=ExtResource("11_66ngm")]
+[node name="CardUI" parent="CardBattle/CardBattleUI/Hand" unique_id=826986466 instance=ExtResource("11_66ngm")]
 layout_mode = 2
 
-[node name="CardUI2" parent="CardBattle/BattleUI/Hand" unique_id=969092134 instance=ExtResource("11_66ngm")]
+[node name="CardUI2" parent="CardBattle/CardBattleUI/Hand" unique_id=969092134 instance=ExtResource("11_66ngm")]
 layout_mode = 2
 
-[node name="CardUI3" parent="CardBattle/BattleUI/Hand" unique_id=199266378 instance=ExtResource("11_66ngm")]
+[node name="CardUI3" parent="CardBattle/CardBattleUI/Hand" unique_id=199266378 instance=ExtResource("11_66ngm")]
 layout_mode = 2
 
 [connection signal="mouse_entered" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_mouse_entered"]
