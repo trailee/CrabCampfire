@@ -1,15 +1,7 @@
-[gd_scene format=3 uid="uid://rhssa8tpt0tp"]
+[gd_scene format=3 uid="uid://cfrd2y6ejtx7f"]
 
-[ext_resource type="Script" uid="uid://d2yxqef7lcxt0" path="res://src/battle.gd" id="1_fluly"]
-[ext_resource type="Resource" uid="uid://854d0dufabr0" path="res://src/Dragon.tres" id="2_rr1fq"]
-[ext_resource type="Texture2D" uid="uid://d1lnbwip54fyx" path="res://assets/cave.png" id="2_sb4ph"]
-[ext_resource type="PackedScene" uid="uid://dggpssbimn2sr" path="res://crab_molt_scene.tscn" id="3_h4qsw"]
-[ext_resource type="Texture2D" uid="uid://b8o0dbilhsjn" path="res://assets/crab.png" id="3_rr1fq"]
-[ext_resource type="AudioStream" uid="uid://ckmqv6aohwdo5" path="res://Audio/cave_bgm.wav" id="6_h4qsw"]
-[ext_resource type="AudioStream" uid="uid://cshphuw8o2pmg" path="res://Audio/crab_hit.wav" id="7_muv5k"]
-[ext_resource type="AudioStream" uid="uid://c2rvxvc06cwjn" path="res://Audio/player_hit.wav" id="8_jk78t"]
-[ext_resource type="AudioStream" uid="uid://bifvmt8naroyu" path="res://Audio/hoverchoice.wav" id="9_jk78t"]
-[ext_resource type="AudioStream" uid="uid://n7h7j4xj854c" path="res://Audio/pressedbutton.wav" id="10_5o88q"]
+[ext_resource type="Texture2D" uid="uid://d1lnbwip54fyx" path="res://assets/cave.png" id="1_ip7xm"]
+[ext_resource type="Texture2D" uid="uid://b8o0dbilhsjn" path="res://assets/crab.png" id="2_oxp8w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7wwj"]
 bg_color = Color(0.589096, 0.589095, 0.589096, 1)
@@ -55,12 +47,12 @@ border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 
-[sub_resource type="Animation" id="Animation_sb4ph"]
+[sub_resource type="Animation" id="Animation_7sfm4"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Player Panel/PlayerData:modulate")
+tracks/0/path = NodePath("EnemyContainer/Enemy:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -72,7 +64,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("EnemyContainer:modulate")
+tracks/1/path = NodePath("Player Panel/PlayerData:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -82,23 +74,23 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_rr1fq"]
+[sub_resource type="Animation" id="Animation_i431l"]
 resource_name = "enemy_damaged"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("EnemyContainer:modulate")
+tracks/0/path = NodePath("EnemyContainer/Enemy:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2666666, 0.3333333, 0.6333332, 0.9333333, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1005234, 0.16666667, 0.23385674, 0.3),
+"transitions": PackedFloat32Array(1.0717734, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(0.5372549, 0, 0.07058824, 0.6901961), Color(0.5372549, 0, 0.07058824, 0), Color(0.63171524, 0.6317153, 0.631715, 1), Color(0.5372549, 0, 0.07058824, 0), Color(0.6542321, 0.6542321, 0.654232, 1), Color(1, 1, 1, 1)]
+"values": [Color(0.9372549, 0, 0.13725491, 0.68235296), Color(0.84313726, 0.15294118, 0, 0.6156863), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_h4qsw"]
-resource_name = "player_damaged"
+[sub_resource type="Animation" id="Animation_oxp8w"]
+resource_name = "user_damaged"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -106,17 +98,17 @@ tracks/0/path = NodePath("Player Panel/PlayerData:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.36666667, 0.6666667, 0.96666664),
+"times": PackedFloat32Array(0, 0.1, 0.16666667, 0.23333333, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(0.8611649, 0, 0.17002666, 1), Color(0.8627451, 0, 0.16862746, 0), Color(1, 1, 1, 1), Color(0.8627451, 0, 0.16862746, 0), Color(1, 1, 1, 1)]
+"values": [Color(0.9706281, 0.00085860444, 0.111091964, 1), Color(0.72156864, 0, 0.07058824, 0.43529412), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4qsw"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6t8i5"]
 _data = {
-&"RESET": SubResource("Animation_sb4ph"),
-&"enemy_damaged": SubResource("Animation_rr1fq"),
-&"player_damaged": SubResource("Animation_h4qsw")
+&"RESET": SubResource("Animation_7sfm4"),
+&"enemy_damaged": SubResource("Animation_i431l"),
+&"user_damaged": SubResource("Animation_oxp8w")
 }
 
 [node name="Battle" type="Control" unique_id=1138644414]
@@ -126,15 +118,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_fluly")
-enemy = ExtResource("2_rr1fq")
-next_enemy_scene = ExtResource("3_h4qsw")
 
 [node name="BgBackground" type="TextureRect" parent="." unique_id=821247001]
 layout_mode = 0
 offset_right = 1153.0
 offset_bottom = 649.0
-texture = ExtResource("2_sb4ph")
+texture = ExtResource("1_ip7xm")
 
 [node name="EnemyContainer" type="VBoxContainer" parent="." unique_id=1164898747]
 layout_mode = 1
@@ -172,9 +161,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Enemy" type="TextureRect" parent="EnemyContainer" unique_id=1557577007]
-modulate = Color(0.6542321, 0.6542321, 0.654232, 1)
 layout_mode = 2
-texture = ExtResource("3_rr1fq")
+texture = ExtResource("2_oxp8w")
 
 [node name="Player Panel" type="Panel" parent="." unique_id=2085169606]
 layout_mode = 1
@@ -222,7 +210,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -5.0
+offset_right = -25.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "HP: 25/50"
@@ -290,8 +278,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 35
-text = "You wandered into a cave in search for gold."
-horizontal_alignment = 1
+text = "     You wandered into a cave in search for gold."
 vertical_alignment = 1
 
 [node name="Ticker" type="Label" parent="Textbox" unique_id=1194063224]
@@ -308,28 +295,5 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 60
 text = ">"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=671429659]
-libraries/ = SubResource("AnimationLibrary_h4qsw")
-
-[node name="cave_bgm" type="AudioStreamPlayer" parent="." unique_id=1629841738]
-stream = ExtResource("6_h4qsw")
-autoplay = true
-bus = &"bgm"
-
-[node name="userhit_sfx" type="AudioStreamPlayer" parent="." unique_id=971455281]
-stream = ExtResource("8_jk78t")
-
-[node name="crabhit_sfx" type="AudioStreamPlayer" parent="." unique_id=1539464454]
-stream = ExtResource("7_muv5k")
-
-[node name="hoverbutton_sfx" type="AudioStreamPlayer" parent="." unique_id=1561107428]
-stream = ExtResource("9_jk78t")
-volume_db = -2.716
-
-[node name="pressedbutton_sfx" type="AudioStreamPlayer" parent="." unique_id=730784296]
-stream = ExtResource("10_5o88q")
-
-[connection signal="mouse_entered" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_mouse_entered"]
-[connection signal="pressed" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_pressed"]
-[connection signal="mouse_entered" from="ActionsPanel/Actions/Defend" to="." method="_on_defend_mouse_entered"]
-[connection signal="pressed" from="ActionsPanel/Actions/Defend" to="." method="_on_Defend_pressed"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1102190327]
+libraries/ = SubResource("AnimationLibrary_6t8i5")

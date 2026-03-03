@@ -314,7 +314,6 @@ libraries/ = SubResource("AnimationLibrary_h4qsw")
 [node name="cave_bgm" type="AudioStreamPlayer" parent="." unique_id=1629841738]
 stream = ExtResource("6_h4qsw")
 autoplay = true
-bus = &"bgm"
 
 [node name="userhit_sfx" type="AudioStreamPlayer" parent="." unique_id=971455281]
 stream = ExtResource("8_jk78t")
@@ -324,7 +323,6 @@ stream = ExtResource("7_muv5k")
 
 [node name="hoverbutton_sfx" type="AudioStreamPlayer" parent="." unique_id=1561107428]
 stream = ExtResource("9_jk78t")
-volume_db = -2.716
 
 [node name="pressedbutton_sfx" type="AudioStreamPlayer" parent="." unique_id=730784296]
 stream = ExtResource("10_5o88q")

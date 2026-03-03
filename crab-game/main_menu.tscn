@@ -1,40 +1,26 @@
-[gd_scene format=3 uid="uid://dfcdja32adhr5"]
+[gd_scene format=3 uid="uid://7w3hot20rq2u"]
 
 [ext_resource type="Script" uid="uid://bm22ylfln2bks" path="res://main_menu.gd" id="1_06t4h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-expand_margin_left = 50.0
-expand_margin_right = 50.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu7sn"]
-bg_color = Color(0.067982785, 0.06798272, 0.067982756, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-expand_margin_left = 50.0
-expand_margin_right = 50.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vrkn"]
-bg_color = Color(0.27899078, 0.27899086, 0.27899072, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
 expand_margin_left = 50.0
 expand_margin_right = 50.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+expand_margin_left = 50.0
+expand_margin_right = 50.0
 
-[node name="Main_Menu" type="Control" unique_id=1037632826]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vrkn"]
+expand_margin_left = 50.0
+expand_margin_right = 50.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu7sn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glbon"]
+
+[node name="main_menu" type="Control" unique_id=456463766]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,39 +29,33 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_06t4h")
 
-[node name="Panel" type="Panel" parent="." unique_id=300739791]
-layout_mode = 0
-offset_right = 1154.0
-offset_bottom = 646.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1913890587]
-custom_minimum_size = Vector2(0, 10)
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=142542017]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -45.5
-offset_top = -21.5
-offset_right = 45.5
-offset_bottom = 21.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=1864139284]
+[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=1108083181]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_06t4h")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
 text = "Enter Cave"
 
-[node name="CreditsButton" type="Button" parent="VBoxContainer" unique_id=456768204]
+[node name="CreditsButton" type="Button" parent="VBoxContainer" unique_id=2023398234]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jix8l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_glbon")
 text = "Credits"
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
