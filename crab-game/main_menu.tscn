@@ -76,10 +76,15 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_jix8l")
 theme_override_styles/hover = SubResource("StyleBoxFlat_glbon")
 text = "Credits"
 
+[node name="mainmenu_bgm" type="AudioStreamPlayer" parent="." unique_id=1345832961]
+bus = &"bgm"
+
 [node name="hover_sfx" type="AudioStreamPlayer" parent="." unique_id=805039246]
 stream = ExtResource("3_fu7sn")
+bus = &"sfx"
 
 [node name="Credits" type="CanvasLayer" parent="." unique_id=1817440719]
+visible = false
 
 [node name="Credits_UI" type="Control" parent="Credits" unique_id=259566380]
 layout_mode = 3
@@ -109,6 +114,24 @@ offset_right = 795.0
 offset_bottom = 179.0
 theme_override_font_sizes/font_size = 50
 text = "X"
+
+[node name="Label" type="Label" parent="Credits/Credits_UI" unique_id=268931935]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Thank you to Campfire Toronto for making 
+this possible!"
+horizontal_alignment = 1
 
 [connection signal="mouse_entered" from="VBoxContainer/StartButton" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

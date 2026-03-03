@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://dobyqtf1a3fv4"]
+
+[ext_resource type="Texture2D" uid="uid://d1lnbwip54fyx" path="res://assets/cave.png" id="1_wr1af"]
+[ext_resource type="Texture2D" uid="uid://byljerohuvio1" path="res://assets/sprite_sheet.png" id="2_ktkpq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f383q"]
+atlas = ExtResource("2_ktkpq")
+region = Rect2(0, 0, 491, 525)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uofa0"]
+atlas = ExtResource("2_ktkpq")
+region = Rect2(0, 515, 491, 515)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sn6f"]
+atlas = ExtResource("2_ktkpq")
+region = Rect2(491, 485, 491, 485)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ey1ii"]
+atlas = ExtResource("2_ktkpq")
+region = Rect2(982, 485, 491, 485)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l10xe"]
+atlas = ExtResource("2_ktkpq")
+region = Rect2(491, 0, 491, 464)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uacr"]
+atlas = ExtResource("2_ktkpq")
+region = Rect2(982, 0, 491, 464)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxcdb"]
+atlas = ExtResource("2_ktkpq")
+region = Rect2(1473, 0, 491, 525)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v24c3"]
+animations = [{
+"frames": [{
+"duration": 7.5,
+"texture": SubResource("AtlasTexture_f383q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uofa0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0sn6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ey1ii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l10xe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3uacr")
+}, {
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_yxcdb")
+}],
+"loop": false,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="Crab Molt Scene" type="Node2D" unique_id=36891360]
+
+[node name="Bg" type="TextureRect" parent="." unique_id=896902724]
+offset_right = 1153.0
+offset_bottom = 649.0
+texture = ExtResource("1_wr1af")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1957411693]
+position = Vector2(586, 328)
+sprite_frames = SubResource("SpriteFrames_v24c3")
+autoplay = "default"
+frame_progress = 0.91327155
