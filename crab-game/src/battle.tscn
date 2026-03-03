@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://d2yxqef7lcxt0" path="res://src/battle.gd" id="1_fluly"]
 [ext_resource type="Resource" uid="uid://854d0dufabr0" path="res://src/Dragon.tres" id="2_rr1fq"]
-[ext_resource type="Texture2D" uid="uid://d1lnbwip54fyx" path="res://assets/caveRemasteredV7.png" id="2_sb4ph"]
+[ext_resource type="Texture2D" uid="uid://d1lnbwip54fyx" path="res://assets/cave.png" id="2_sb4ph"]
 [ext_resource type="PackedScene" uid="uid://dggpssbimn2sr" path="res://crab_molt_scene.tscn" id="3_h4qsw"]
-[ext_resource type="Texture2D" uid="uid://b8o0dbilhsjn" path="res://assets/IMG_0051 (1).png" id="3_rr1fq"]
+[ext_resource type="Texture2D" uid="uid://b8o0dbilhsjn" path="res://assets/crab.png" id="3_rr1fq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7wwj"]
 bg_color = Color(0.589096, 0.589095, 0.589096, 1)

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b8o0dbilhsjn"
-path="res://.godot/imported/IMG_0051 (1).png-fea352cd50b9934dbdef2222367aabf0.ctex"
+path="res://.godot/imported/crab.png-8c3f0d487c4f55739f26903ac89d0947.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/IMG_0051 (1).png"
-dest_files=["res://.godot/imported/IMG_0051 (1).png-fea352cd50b9934dbdef2222367aabf0.ctex"]
+source_file="res://assets/crab.png"
+dest_files=["res://.godot/imported/crab.png-8c3f0d487c4f55739f26903ac89d0947.ctex"]
 
 [params]
 
