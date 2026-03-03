@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://crxe88s8bd85b" path="res://Audio/menu_down.wav" id="3_fu7sn"]
 [ext_resource type="AudioStream" uid="uid://bj4l17ya77rtl" path="res://Audio/mainmenu_bgm.mp3" id="3_glbon"]
 [ext_resource type="Texture2D" uid="uid://p5h3k1rso62h" path="res://assets/credits_ui.png" id="4_jix8l"]
+[ext_resource type="Texture2D" uid="uid://38jy6xjhtxh3" path="res://assets/closecredit.png" id="6_nlkkf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fu7sn"]
 texture = ExtResource("2_7vrkn")
@@ -29,6 +30,17 @@ expand_margin_right = 50.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nlkkf"]
 bg_color = Color(0, 0, 0, 0.6862745)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qe12f"]
+texture = ExtResource("6_nlkkf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8qtwp"]
+texture = ExtResource("6_nlkkf")
+texture_margin_top = 15.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nlkkf"]
+texture = ExtResource("6_nlkkf")
+modulate_color = Color(0.72130203, 0.72130215, 0.721302, 1)
 
 [node name="main_menu" type="Control" unique_id=456463766]
 layout_mode = 3
@@ -88,7 +100,6 @@ stream = ExtResource("3_fu7sn")
 bus = &"sfx"
 
 [node name="Credits" type="CanvasLayer" parent="." unique_id=1817440719]
-visible = false
 
 [node name="Credits_UI" type="Control" parent="Credits" unique_id=259566380]
 layout_mode = 3
@@ -112,12 +123,15 @@ texture = ExtResource("4_jix8l")
 
 [node name="ExitCredits" type="Button" parent="Credits/Credits_UI" unique_id=1632879403]
 layout_mode = 0
-offset_left = 756.0
-offset_top = 102.0
-offset_right = 795.0
-offset_bottom = 179.0
+offset_left = 734.0
+offset_top = 107.0
+offset_right = 773.0
+offset_bottom = 184.0
+scale = Vector2(2.1599998, 1)
 theme_override_font_sizes/font_size = 50
-text = "X"
+theme_override_styles/normal = SubResource("StyleBoxTexture_qe12f")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8qtwp")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nlkkf")
 
 [node name="Label" type="Label" parent="Credits/Credits_UI" unique_id=268931935]
 layout_mode = 1
