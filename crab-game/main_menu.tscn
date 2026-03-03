@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bm22ylfln2bks" path="res://main_menu.gd" id="1_06t4h"]
 [ext_resource type="Texture2D" uid="uid://djpwfp77p3ist" path="res://assets/mainmenu.png" id="2_7vrkn"]
+[ext_resource type="AudioStream" uid="uid://crxe88s8bd85b" path="res://Audio/menu_down.wav" id="3_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://p5h3k1rso62h" path="res://assets/credits_ui.png" id="4_jix8l"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fu7sn"]
 texture = ExtResource("2_7vrkn")
@@ -23,6 +25,9 @@ expand_margin_right = 50.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glbon"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nlkkf"]
+bg_color = Color(0, 0, 0, 0.6862745)
 
 [node name="main_menu" type="Control" unique_id=456463766]
 layout_mode = 3
@@ -71,4 +76,42 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_jix8l")
 theme_override_styles/hover = SubResource("StyleBoxFlat_glbon")
 text = "Credits"
 
+[node name="hover_sfx" type="AudioStreamPlayer" parent="." unique_id=805039246]
+stream = ExtResource("3_fu7sn")
+
+[node name="Credits" type="CanvasLayer" parent="." unique_id=1817440719]
+
+[node name="Credits_UI" type="Control" parent="Credits" unique_id=259566380]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="translucent_black" type="Panel" parent="Credits/Credits_UI" unique_id=82008357]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.979872, 16.29987)
+theme_override_styles/panel = SubResource("StyleBoxFlat_nlkkf")
+
+[node name="Credit_bg" type="Sprite2D" parent="Credits/Credits_UI" unique_id=920685197]
+position = Vector2(576, 334)
+scale = Vector2(2.2619822, 2.2619822)
+texture = ExtResource("4_jix8l")
+
+[node name="ExitCredits" type="Button" parent="Credits/Credits_UI" unique_id=1632879403]
+layout_mode = 0
+offset_left = 756.0
+offset_top = 102.0
+offset_right = 795.0
+offset_bottom = 179.0
+theme_override_font_sizes/font_size = 50
+text = "X"
+
+[connection signal="mouse_entered" from="VBoxContainer/StartButton" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/CreditsButton" to="." method="_on_credits_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Credits/Credits_UI/ExitCredits" to="." method="_on_exit_credits_pressed"]
