@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://c2rvxvc06cwjn" path="res://Audio/player_hit.wav" id="8_jk78t"]
 [ext_resource type="AudioStream" uid="uid://bifvmt8naroyu" path="res://Audio/hoverchoice.wav" id="9_jk78t"]
 [ext_resource type="AudioStream" uid="uid://n7h7j4xj854c" path="res://Audio/pressedbutton.wav" id="10_5o88q"]
+[ext_resource type="PackedScene" uid="uid://b7o2ba4ihetdr" path="res://scenes/card_ui/card_ui.tscn" id="11_66ngm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7wwj"]
 bg_color = Color(0.589096, 0.589095, 0.589096, 1)
@@ -118,6 +119,9 @@ _data = {
 &"enemy_damaged": SubResource("Animation_rr1fq"),
 &"player_damaged": SubResource("Animation_h4qsw")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03edq"]
+size = Vector2(1152, 432)
 
 [node name="Battle" type="Control" unique_id=1138644414]
 layout_mode = 3
@@ -327,6 +331,41 @@ volume_db = -2.716
 
 [node name="pressedbutton_sfx" type="AudioStreamPlayer" parent="." unique_id=730784296]
 stream = ExtResource("10_5o88q")
+
+[node name="Card_Battle" type="Node2D" parent="." unique_id=1021692128]
+
+[node name="CardDropArea" type="Area2D" parent="Card_Battle" unique_id=1059477610]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Card_Battle/CardDropArea" unique_id=5654735]
+position = Vector2(576, 216)
+shape = SubResource("RectangleShape2D_03edq")
+
+[node name="BattleUI" type="CanvasLayer" parent="Card_Battle" unique_id=826985986 groups=["ui_layer"]]
+
+[node name="Hand" type="HBoxContainer" parent="Card_Battle/BattleUI" unique_id=819440192]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -377.0
+offset_top = -180.0
+offset_right = 377.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+alignment = 1
+
+[node name="CardUI" parent="Card_Battle/BattleUI/Hand" unique_id=826986466 instance=ExtResource("11_66ngm")]
+layout_mode = 2
+
+[node name="CardUI2" parent="Card_Battle/BattleUI/Hand" unique_id=219752500 instance=ExtResource("11_66ngm")]
+layout_mode = 2
+
+[node name="CardUI3" parent="Card_Battle/BattleUI/Hand" unique_id=1358962103 instance=ExtResource("11_66ngm")]
+layout_mode = 2
 
 [connection signal="mouse_entered" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_mouse_entered"]
 [connection signal="pressed" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_pressed"]
