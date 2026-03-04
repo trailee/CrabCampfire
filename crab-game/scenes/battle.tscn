@@ -12,6 +12,9 @@
 [ext_resource type="AudioStream" uid="uid://n7h7j4xj854c" path="res://Audio/pressedbutton.wav" id="10_5o88q"]
 [ext_resource type="Script" uid="uid://cdldk2do5b6wp" path="res://scenes/ui/hand.gd" id="11_03edq"]
 [ext_resource type="PackedScene" uid="uid://b7o2ba4ihetdr" path="res://scenes/card_ui/card_ui.tscn" id="11_66ngm"]
+[ext_resource type="PackedScene" uid="uid://48seisnkiw4o" path="res://scenes/card_target_selector/card_target_selector.tscn" id="11_vceff"]
+[ext_resource type="Resource" uid="uid://dxftafvv8u2dv" path="res://characters/warrior/cards/warrior_axe_attack.tres" id="13_6ni85"]
+[ext_resource type="Resource" uid="uid://bued8w6m28870" path="res://characters/warrior/cards/warrior_block.tres" id="14_vceff"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7wwj"]
 bg_color = Color(0.589096, 0.589095, 0.589096, 1)
@@ -35,6 +38,9 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ekamt"]
+size = Vector2(520.2341, 513.8917)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oxp8w"]
 bg_color = Color(0, 0, 0, 0.0941176)
@@ -148,13 +154,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -179.0
-offset_top = -198.0
-offset_right = 312.0
-offset_bottom = 366.0
+offset_left = 282.0
+offset_top = -196.0
+offset_right = 773.0
+offset_bottom = 368.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.7068072, 0.7068072)
+scale = Vector2(0.5468078, 0.5468078)
 
 [node name="ProgressBar" type="ProgressBar" parent="EnemyContainer" unique_id=153732057]
 custom_minimum_size = Vector2(0, 35)
@@ -180,6 +186,13 @@ vertical_alignment = 1
 modulate = Color(0.6542321, 0.6542321, 0.654232, 1)
 layout_mode = 2
 texture = ExtResource("3_rr1fq")
+
+[node name="EnemyHitbox" type="Area2D" parent="EnemyContainer/Enemy" unique_id=845787847]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyContainer/Enemy/EnemyHitbox" unique_id=1510510693]
+position = Vector2(241.40112, 258.17938)
+shape = SubResource("RectangleShape2D_ekamt")
 
 [node name="Player Panel" type="Panel" parent="." unique_id=2085169606]
 layout_mode = 1
@@ -335,12 +348,16 @@ stream = ExtResource("10_5o88q")
 
 [node name="Card_Battle" type="Node2D" parent="." unique_id=1021692128]
 
+[node name="CardTargetSelector" parent="Card_Battle" unique_id=1484005604 instance=ExtResource("11_vceff")]
+script = null
+
 [node name="CardDropArea" type="Area2D" parent="Card_Battle" unique_id=1059477610]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Card_Battle/CardDropArea" unique_id=5654735]
 position = Vector2(576, 216)
 shape = SubResource("RectangleShape2D_03edq")
+debug_color = Color(0, 0.12115901, 0.14752612, 0.043137256)
 
 [node name="BattleUI" type="CanvasLayer" parent="Card_Battle" unique_id=826985986 groups=["ui_layer"]]
 
@@ -362,12 +379,15 @@ script = ExtResource("11_03edq")
 
 [node name="CardUI" parent="Card_Battle/BattleUI/Hand" unique_id=826986466 instance=ExtResource("11_66ngm")]
 layout_mode = 2
+card = ExtResource("13_6ni85")
 
 [node name="CardUI2" parent="Card_Battle/BattleUI/Hand" unique_id=219752500 instance=ExtResource("11_66ngm")]
 layout_mode = 2
+card = ExtResource("13_6ni85")
 
 [node name="CardUI3" parent="Card_Battle/BattleUI/Hand" unique_id=1358962103 instance=ExtResource("11_66ngm")]
 layout_mode = 2
+card = ExtResource("14_vceff")
 
 [connection signal="mouse_entered" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_mouse_entered"]
 [connection signal="pressed" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_pressed"]
