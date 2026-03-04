@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://b7o2ba4ihetdr"]
+
+[ext_resource type="Theme" uid="uid://s4vgyykj0g27" path="res://src/main_theme.tres" id="1_gy3gl"]
+
+[sub_resource type="GDScript" id="GDScript_gy3gl"]
+script/source = "extends Control
+class_name CardUI
+
+
+
+@warning_ignore(\"unused_signal\")
+signal reparent_requested(which_card_ui: CardUI)
+
+@onready var color: ColorRect = $Color
+@onready var state: Label = $State
+@onready var drop_point_detector: Area2D = $DropPointDetector
+@onready var card_state_machine: CardStateMachine = $CardStateMachine as CardStateMachine
+
+func update_card_text(new_text: String):
+	$Label.text = new_text
+
+func _ready() -> void:
+	card_state_machine.init(self)
+	
+func _input(event: InputEvent) -> void:
+	card_state_machine.on_input(event)
+
+func _on_gui_input(event: InputEvent) -> void:
+	card_state_machine.on_gui_input(event)
+
+func _on_mouse_entered() -> void:
+	card_state_machine.on_mouse_entered()
+	
+func _on_mouse_exited() -> void:
+	card_state_machine.on_mouse_exited()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gy3gl"]
+size = Vector2(150, 180)
+
+[node name="CardUI" type="Control" unique_id=826986466]
+custom_minimum_size = Vector2(150, 180)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 94.0
+offset_top = 140.0
+offset_right = -908.0
+offset_bottom = -328.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gy3gl")
+script = SubResource("GDScript_gy3gl")
+
+[node name="Color" type="ColorRect" parent="." unique_id=598041608]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.17612728, 0.3626355, 0.24134377, 1)
+
+[node name="State" type="Label" parent="." unique_id=1501053539]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "state"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DropPointDetector" type="Area2D" parent="." unique_id=1997778239]
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector" unique_id=1876841728]
+position = Vector2(75, 90)
+shape = SubResource("RectangleShape2D_gy3gl")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
