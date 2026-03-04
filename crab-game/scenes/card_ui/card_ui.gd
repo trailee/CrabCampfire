@@ -1,7 +1,7 @@
 extends Control
 class_name CardUI
 
-
+@warning_ignore("unused_signal")
 signal reparent_requested(which_card_ui: CardUI)
 
 @onready var color: ColorRect = $Color
