@@ -91,13 +91,11 @@ text = "Credits"
 
 [node name="mainmenu_bgm" type="AudioStreamPlayer" parent="." unique_id=1345832961]
 stream = ExtResource("3_glbon")
-volume_db = -8.0
+volume_db = -10.0
 autoplay = true
-bus = &"bgm"
 
 [node name="hover_sfx" type="AudioStreamPlayer" parent="." unique_id=805039246]
 stream = ExtResource("3_fu7sn")
-bus = &"sfx"
 
 [node name="Credits" type="CanvasLayer" parent="." unique_id=1817440719]
 
