@@ -349,7 +349,6 @@ stream = ExtResource("10_5o88q")
 [node name="Card_Battle" type="Node2D" parent="." unique_id=1021692128]
 
 [node name="CardTargetSelector" parent="Card_Battle" unique_id=1484005604 instance=ExtResource("11_vceff")]
-script = null
 
 [node name="CardDropArea" type="Area2D" parent="Card_Battle" unique_id=1059477610]
 collision_layer = 2
