@@ -276,7 +276,6 @@ alignment = 1
 [node name="Attack" type="Button" parent="ActionsPanel/Actions" unique_id=1758552722]
 layout_mode = 2
 size_flags_horizontal = 3
-mouse_default_cursor_shape = 2
 theme_type_variation = &"FlatButton"
 theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
 theme_override_colors/font_pressed_color = Color(0.04755766, 0.047557645, 0.047557645, 1)
@@ -290,7 +289,6 @@ text = "ATTACK"
 [node name="Defend" type="Button" parent="ActionsPanel/Actions" unique_id=2099542323]
 layout_mode = 2
 size_flags_horizontal = 3
-mouse_default_cursor_shape = 2
 theme_type_variation = &"FlatButton"
 theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
 theme_override_colors/font_pressed_color = Color(0.04755766, 0.047557645, 0.047557645, 1)
