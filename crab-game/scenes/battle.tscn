@@ -44,7 +44,7 @@ corner_radius_bottom_left = 10
 size = Vector2(520.2341, 513.8917)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oxp8w"]
-bg_color = Color(0, 0, 0, 0.0941176)
+bg_color = Color(0, 0, 0, 0.37254903)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7sfm4"]
 bg_color = Color(0.012645883, 0.012645884, 0.01264587, 1)
@@ -132,6 +132,12 @@ _data = {
 size = Vector2(1152, 432)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekamt"]
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_djc8l"]
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
@@ -385,6 +391,17 @@ theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_ekamt")
 text = "End turn"
 
+[node name="back_button" type="Button" parent="Card_Battle/BattleUI" unique_id=276852184]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_right = 121.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_djc8l")
+text = "Back"
+
 [node name="Hand" type="HBoxContainer" parent="Card_Battle/BattleUI" unique_id=819440192]
 anchors_preset = 7
 anchor_left = 0.5
@@ -420,3 +437,5 @@ card = ExtResource("14_vceff")
 [connection signal="pressed" from="ActionsPanel/Actions/Defend" to="." method="_on_Defend_pressed"]
 [connection signal="pressed" from="Card_Battle/BattleUI/endturn_button" to="." method="_on_endturn_button_pressed"]
 [connection signal="pressed" from="Card_Battle/BattleUI/endturn_button" to="Card_Battle/BattleUI" method="_on_endturn_button_pressed"]
+[connection signal="pressed" from="Card_Battle/BattleUI/back_button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Card_Battle/BattleUI/back_button" to="Card_Battle/BattleUI" method="_on_back_button_pressed"]

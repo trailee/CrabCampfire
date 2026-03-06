@@ -136,3 +136,6 @@ func _on_endturn_button_pressed() -> void:
 	display_text("you use a card... probably do dmg")# code player dmg
 	await textbox_closed
 	enemy_turn()
+
+func _on_back_button_pressed() -> void:
+	$ActionsPanel.show()

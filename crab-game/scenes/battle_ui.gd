@@ -8,3 +8,7 @@ func _on_attack_pressed() -> void:
 
 func _on_endturn_button_pressed() -> void:
 	hide()
+
+func _on_back_button_pressed() -> void:
+	hide()
+	#reset mana bar
