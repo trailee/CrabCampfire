@@ -390,5 +390,6 @@ card = ExtResource("14_vceff")
 
 [connection signal="mouse_entered" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_mouse_entered"]
 [connection signal="pressed" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="ActionsPanel/Actions/Attack" to="Card_Battle/BattleUI/Hand" method="_on_attack_pressed"]
 [connection signal="mouse_entered" from="ActionsPanel/Actions/Defend" to="." method="_on_defend_mouse_entered"]
 [connection signal="pressed" from="ActionsPanel/Actions/Defend" to="." method="_on_Defend_pressed"]

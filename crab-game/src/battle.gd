@@ -90,30 +90,30 @@ func enemy_turn():
 
 func _on_attack_pressed():
 	$pressedbutton_sfx.play()
-	display_text("You flail your arms around!")
-	await textbox_closed
+#	display_text("You flail your arms around!")
+#	await textbox_closed
+#	
+#	current_enemy_health = max(0, current_enemy_health - State.damage)
+#	set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
+#	$userhit_sfx.play()
+#	$AnimationPlayer.play("enemy_damaged")
+#	await $AnimationPlayer.animation_finished
 	
-	current_enemy_health = max(0, current_enemy_health - State.damage)
-	set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
-	$userhit_sfx.play()
-	$AnimationPlayer.play("enemy_damaged")
-	await $AnimationPlayer.animation_finished
+#	display_text("You dealt %d damage!" % State.damage)
+#	await textbox_closed
 	
-	display_text("You dealt %d damage!" % State.damage)
-	await textbox_closed
-	
-	if current_enemy_health == 0:
-		display_text("%s was defeated!" % enemy.name)
-		await textbox_closed
-		
-		await get_tree().create_timer(0.25).timeout
-		# Load next enemy battle instead of quitting
-		if next_enemy_scene:
-			get_tree().change_scene_to_packed(next_enemy_scene)
-		else:
-			get_tree().quit()
+#	if current_enemy_health == 0:
+#		display_text("%s was defeated!" % enemy.name)
+#		await textbox_closed
+#		
+#		await get_tree().create_timer(0.25).timeout
+#		# Load next enemy battle instead of quitting
+#		if next_enemy_scene:
+#			get_tree().change_scene_to_packed(next_enemy_scene)
+#		else:
+#			get_tree().quit()
 
-	enemy_turn()
+#	enemy_turn()
 func _on_Defend_pressed():
 	is_defending = true
 	$pressedbutton_sfx.play()
