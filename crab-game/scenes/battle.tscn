@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://cdldk2do5b6wp" path="res://scenes/ui/hand.gd" id="11_03edq"]
 [ext_resource type="PackedScene" uid="uid://b7o2ba4ihetdr" path="res://scenes/card_ui/card_ui.tscn" id="11_66ngm"]
 [ext_resource type="PackedScene" uid="uid://48seisnkiw4o" path="res://scenes/card_target_selector/card_target_selector.tscn" id="11_vceff"]
+[ext_resource type="Script" uid="uid://cfu3ct36vbayu" path="res://scenes/battle_ui.gd" id="12_djc8l"]
 [ext_resource type="Resource" uid="uid://dxftafvv8u2dv" path="res://characters/warrior/cards/warrior_axe_attack.tres" id="13_6ni85"]
 [ext_resource type="Resource" uid="uid://bued8w6m28870" path="res://characters/warrior/cards/warrior_block.tres" id="14_vceff"]
 
@@ -129,6 +130,12 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03edq"]
 size = Vector2(1152, 432)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekamt"]
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [node name="Battle" type="Control" unique_id=1138644414]
 layout_mode = 3
@@ -364,6 +371,21 @@ shape = SubResource("RectangleShape2D_03edq")
 debug_color = Color(0, 0.12115901, 0.14752612, 0.043137256)
 
 [node name="BattleUI" type="CanvasLayer" parent="Card_Battle" unique_id=826985986 groups=["ui_layer"]]
+script = ExtResource("12_djc8l")
+
+[node name="endturn_button" type="Button" parent="Card_Battle/BattleUI" unique_id=713935508]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -69.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_ekamt")
+text = "End turn"
 
 [node name="Hand" type="HBoxContainer" parent="Card_Battle/BattleUI" unique_id=819440192]
 anchors_preset = 7
@@ -395,6 +417,8 @@ card = ExtResource("14_vceff")
 
 [connection signal="mouse_entered" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_mouse_entered"]
 [connection signal="pressed" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_pressed"]
-[connection signal="pressed" from="ActionsPanel/Actions/Attack" to="Card_Battle/BattleUI/Hand" method="_on_attack_pressed"]
+[connection signal="pressed" from="ActionsPanel/Actions/Attack" to="Card_Battle/BattleUI" method="_on_attack_pressed"]
 [connection signal="mouse_entered" from="ActionsPanel/Actions/Defend" to="." method="_on_defend_mouse_entered"]
 [connection signal="pressed" from="ActionsPanel/Actions/Defend" to="." method="_on_Defend_pressed"]
+[connection signal="pressed" from="Card_Battle/BattleUI/endturn_button" to="." method="_on_endturn_button_pressed"]
+[connection signal="pressed" from="Card_Battle/BattleUI/endturn_button" to="Card_Battle/BattleUI" method="_on_endturn_button_pressed"]

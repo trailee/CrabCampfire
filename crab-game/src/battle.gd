@@ -131,3 +131,8 @@ func _on_attack_mouse_entered() -> void:
 # defend
 func _on_defend_mouse_entered() -> void:
 	$hoverbutton_sfx.play()
+
+func _on_endturn_button_pressed() -> void:
+	display_text("you use a card... probably do dmg")# code player dmg
+	await textbox_closed
+	enemy_turn()
