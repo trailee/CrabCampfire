@@ -90,6 +90,7 @@ func enemy_turn():
 
 func _on_attack_pressed():
 	$pressedbutton_sfx.play()
+	$ActionsPanel.hide()
 #	display_text("You flail your arms around!")
 #	await textbox_closed
 #	
